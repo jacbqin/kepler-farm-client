@@ -50,8 +50,39 @@ export type Farm = {
       ],
       "args": [
         {
-          "name": "operator",
-          "type": "publicKey"
+          "name": "preWithdrawFeeRate",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "updateFarm",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "preWithdrawFeeRate",
+          "type": "u8"
         }
       ]
     },
@@ -273,7 +304,7 @@ export type Farm = {
       ]
     },
     {
-      "name": "updaeSolPool",
+      "name": "updateSolPool",
       "accounts": [
         {
           "name": "signer",
@@ -412,6 +443,11 @@ export type Farm = {
           "isSigner": true
         },
         {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "poolAccount",
           "isMut": true,
           "isSigner": false
@@ -441,7 +477,7 @@ export type Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "DepositArg"
           }
         }
       ]
@@ -455,6 +491,11 @@ export type Farm = {
           "isSigner": true
         },
         {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "tokenMint",
           "isMut": true,
           "isSigner": false
@@ -499,10 +540,142 @@ export type Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "DepositArg"
           }
         }
       ]
+    },
+    {
+      "name": "stakeNft",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "depositTokenMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMetadataAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositionAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "withdrawNft",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "depositTokenMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMetadataAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositionAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
     },
     {
       "name": "withdrawToken",
@@ -513,6 +686,11 @@ export type Farm = {
           "isSigner": true
         },
         {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "tokenMint",
           "isMut": true,
           "isSigner": false
@@ -557,7 +735,7 @@ export type Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "WithdrawArg"
           }
         }
       ]
@@ -569,6 +747,11 @@ export type Farm = {
           "name": "signer",
           "isMut": true,
           "isSigner": true
+        },
+        {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
         },
         {
           "name": "poolAccount",
@@ -600,7 +783,7 @@ export type Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "WithdrawArg"
           }
         }
       ]
@@ -744,6 +927,10 @@ export type Farm = {
             "type": "publicKey"
           },
           {
+            "name": "preWithdrawFeeRate",
+            "type": "u8"
+          },
+          {
             "name": "operators",
             "type": {
               "vec": "publicKey"
@@ -800,10 +987,10 @@ export type Farm = {
             }
           },
           {
-            "name": "nftConfigs",
+            "name": "collectionConfigs",
             "type": {
               "vec": {
-                "defined": "NftConfig"
+                "defined": "CollectionConfig"
               }
             }
           }
@@ -813,7 +1000,7 @@ export type Farm = {
   ],
   "types": [
     {
-      "name": "DepositionArg",
+      "name": "DepositArg",
       "type": {
         "kind": "struct",
         "fields": [
@@ -862,12 +1049,28 @@ export type Farm = {
             }
           },
           {
-            "name": "nftConfigs",
+            "name": "collectionConfigs",
             "type": {
               "vec": {
-                "defined": "NftConfig"
+                "defined": "CollectionConfig"
               }
             }
+          }
+        ]
+      }
+    },
+    {
+      "name": "WithdrawArg",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "lockWeeks",
+            "type": "u8"
           }
         ]
       }
@@ -899,6 +1102,10 @@ export type Farm = {
           },
           {
             "name": "lockWeeks",
+            "type": "u8"
+          },
+          {
+            "name": "lockMultiplier",
             "type": "u8"
           },
           {
@@ -985,7 +1192,7 @@ export type Farm = {
       }
     },
     {
-      "name": "NftConfig",
+      "name": "CollectionConfig",
       "type": {
         "kind": "struct",
         "fields": [
@@ -1021,6 +1228,16 @@ export type Farm = {
       "code": 6003,
       "name": "InvalidAccess",
       "msg": "invalid access"
+    },
+    {
+      "code": 6004,
+      "name": "NoCollection",
+      "msg": "nft has no collection related"
+    },
+    {
+      "code": 6005,
+      "name": "CollectionNotAllowed",
+      "msg": "nft collection not allowed"
     }
   ]
 };
@@ -1077,8 +1294,39 @@ export const IDL: Farm = {
       ],
       "args": [
         {
-          "name": "operator",
-          "type": "publicKey"
+          "name": "preWithdrawFeeRate",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "updateFarm",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "preWithdrawFeeRate",
+          "type": "u8"
         }
       ]
     },
@@ -1300,7 +1548,7 @@ export const IDL: Farm = {
       ]
     },
     {
-      "name": "updaeSolPool",
+      "name": "updateSolPool",
       "accounts": [
         {
           "name": "signer",
@@ -1439,6 +1687,11 @@ export const IDL: Farm = {
           "isSigner": true
         },
         {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "poolAccount",
           "isMut": true,
           "isSigner": false
@@ -1468,7 +1721,7 @@ export const IDL: Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "DepositArg"
           }
         }
       ]
@@ -1482,6 +1735,11 @@ export const IDL: Farm = {
           "isSigner": true
         },
         {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "tokenMint",
           "isMut": true,
           "isSigner": false
@@ -1526,10 +1784,142 @@ export const IDL: Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "DepositArg"
           }
         }
       ]
+    },
+    {
+      "name": "stakeNft",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "depositTokenMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMetadataAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositionAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "withdrawNft",
+      "accounts": [
+        {
+          "name": "signer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "depositTokenMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "nftMetadataAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userNftAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "depositionAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
     },
     {
       "name": "withdrawToken",
@@ -1540,6 +1930,11 @@ export const IDL: Farm = {
           "isSigner": true
         },
         {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "tokenMint",
           "isMut": true,
           "isSigner": false
@@ -1584,7 +1979,7 @@ export const IDL: Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "WithdrawArg"
           }
         }
       ]
@@ -1596,6 +1991,11 @@ export const IDL: Farm = {
           "name": "signer",
           "isMut": true,
           "isSigner": true
+        },
+        {
+          "name": "farmAccount",
+          "isMut": true,
+          "isSigner": false
         },
         {
           "name": "poolAccount",
@@ -1627,7 +2027,7 @@ export const IDL: Farm = {
         {
           "name": "arg",
           "type": {
-            "defined": "DepositionArg"
+            "defined": "WithdrawArg"
           }
         }
       ]
@@ -1771,6 +2171,10 @@ export const IDL: Farm = {
             "type": "publicKey"
           },
           {
+            "name": "preWithdrawFeeRate",
+            "type": "u8"
+          },
+          {
             "name": "operators",
             "type": {
               "vec": "publicKey"
@@ -1827,10 +2231,10 @@ export const IDL: Farm = {
             }
           },
           {
-            "name": "nftConfigs",
+            "name": "collectionConfigs",
             "type": {
               "vec": {
-                "defined": "NftConfig"
+                "defined": "CollectionConfig"
               }
             }
           }
@@ -1840,7 +2244,7 @@ export const IDL: Farm = {
   ],
   "types": [
     {
-      "name": "DepositionArg",
+      "name": "DepositArg",
       "type": {
         "kind": "struct",
         "fields": [
@@ -1889,12 +2293,28 @@ export const IDL: Farm = {
             }
           },
           {
-            "name": "nftConfigs",
+            "name": "collectionConfigs",
             "type": {
               "vec": {
-                "defined": "NftConfig"
+                "defined": "CollectionConfig"
               }
             }
+          }
+        ]
+      }
+    },
+    {
+      "name": "WithdrawArg",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "lockWeeks",
+            "type": "u8"
           }
         ]
       }
@@ -1926,6 +2346,10 @@ export const IDL: Farm = {
           },
           {
             "name": "lockWeeks",
+            "type": "u8"
+          },
+          {
+            "name": "lockMultiplier",
             "type": "u8"
           },
           {
@@ -2012,7 +2436,7 @@ export const IDL: Farm = {
       }
     },
     {
-      "name": "NftConfig",
+      "name": "CollectionConfig",
       "type": {
         "kind": "struct",
         "fields": [
@@ -2048,6 +2472,16 @@ export const IDL: Farm = {
       "code": 6003,
       "name": "InvalidAccess",
       "msg": "invalid access"
+    },
+    {
+      "code": 6004,
+      "name": "NoCollection",
+      "msg": "nft has no collection related"
+    },
+    {
+      "code": 6005,
+      "name": "CollectionNotAllowed",
+      "msg": "nft collection not allowed"
     }
   ]
 };
